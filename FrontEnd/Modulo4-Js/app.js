@@ -1,123 +1,115 @@
-const mainScreen = document.querySelector('.main-screen');
-const pokeName = document.querySelector('.poke-name');
-const pokeId = document.querySelector('.poke-id');
-const pokeFrontImage = document.querySelector('.poke-front-image');
-const pokeBackImage = document.querySelector('.poke-back-image');
-const pokeTypeOne = document.querySelector('.poke-type-one');
-const pokeTypeTwo = document.querySelector('.poke-type-two');
-const pokeWeight = document.querySelector('.poke-weight');
-const pokeHeight = document.querySelector('.poke-height');
-const pokeListItems = document.querySelectorAll('.list-item');
-const leftButton = document.querySelector('.left-button');
-const rightButton = document.querySelector('.right-button');
+function setPokemonCard(identifier, pokemon) {
+    var image = document.getElementById(`pokemon_img${identifier}`)
+    var name = document.getElementById(`pokemon_name${identifier}`)
+    var height = document.getElementById(`pokemon_height${identifier}`)
+    var weight = document.getElementById(`pokemon_weight${identifier}`)
+    var abilities = document.getElementById(`pokemon_abilities${identifier}`)
+    image.setAttribute("src", pokemon.sprites.other.dream_world.front_default)
+    name.innerText = pokemon.name
+    height.innerText = pokemon.height
+    weight.innerText = pokemon.weight
+    abilities.innerText = pokemon.abilities.length
+}
 
+function consultarPokemon(identifier) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${identifier}`)
+        .then(function (response) {
+            response.json()
+                .then(function (pokemon) {
+                    setPokemonCard(identifier, pokemon)
+                })
+        })
+}
 
+function buscaPokemon() {
+    var panel = document.getElementsByClassName("panel")[0]
+    panel.innerHTML = ""
+    var identifier = document.getElementById("pesquisa").value.toLowerCase()
+    var card = document.createElement("div")
+    card.className = "pokemon_card"
+    card.innerHTML = criaCardPokemon(identifier)
+    consultarPokemon(identifier)
+    panel.appendChild(card)
+}
 
-// constantes y variables
-const TYPES = [
-    'normal', 'fighting', 'flying',
-    'poison', 'ground', 'rock',
-    'bug', 'ghost', 'steel',
-    'fire', 'water', 'grass',
-    'electric', 'psychic', 'ice',
-    'dragon', 'dark', 'fairy'
-];
-let prevUrl = null;
-let nextUrl = null;
-
-
-// Funciones
-const capitalize = (str) => str[0].toUpperCase() + str.substr(1);
-
-const resetScreen = () => {
-    mainScreen.classList.remove('hide');
-    for (const type of TYPES) {
-        mainScreen.classList.remove(type);
+document.getElementById("pesquisa").addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        buscaPokemon()
     }
-};
+});
 
-const fetchPokeList = url => {
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            const { results, previous, next } = data;
-            prevUrl = previous;
-            nextUrl = next;
-
-            for (let i = 0; i < pokeListItems.length; i++) {
-                const pokeListItem = pokeListItems[i];
-                const resultData = results[i];
-
-                if (resultData) {
-                    const { name, url } = resultData;
-                    const urlArray = url.split('/');
-                    const id = urlArray[urlArray.length - 2];
-                    pokeListItem.textContent = id + '. ' + capitalize(name);
-                } else {
-                    pokeListItem.textContent = '';
-                }
-            }
-        });
-};
-
-const fetchPokeData = id => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            resetScreen();
-
-            const dataTypes = data['types'];
-            const dataFirstType = dataTypes[0];
-            const dataSecondType = dataTypes[1];
-            pokeTypeOne.textContent = capitalize(dataFirstType['type']['name']);
-            if (dataSecondType) {
-                pokeTypeTwo.classList.remove('hide');
-                pokeTypeTwo.textContent = capitalize(dataSecondType['type']['name']);
-            } else {
-                pokeTypeTwo.classList.add('hide');
-                pokeTypeTwo.textContent = '';
-            }
-            mainScreen.classList.add(dataFirstType['type']['name']);
-
-            pokeName.textContent = capitalize(data['name']);
-            pokeId.textContent = '#' + data['id'].toString().padStart(3, '0');
-            pokeWeight.textContent = data['weight'];
-            pokeHeight.textContent = data['height'];
-            pokeFrontImage.src = data['sprites']['front_default'] || '';
-            pokeBackImage.src = data['sprites']['back_default'] || '';
-        });
-};
-
-const handleLeftButtonClick = () => {
-    if (prevUrl) {
-        fetchPokeList(prevUrl);
-    }
-};
-
-const handleRightButtonClick = () => {
-    if (nextUrl) {
-        fetchPokeList(nextUrl);
-    }
-};
-
-const handleListItemClick = (e) => {
-    if (!e.target) return;
-
-    const listItem = e.target;
-    if (!listItem.textContent) return;
-
-    const id = listItem.textContent.split('.')[0];
-    fetchPokeData(id);
-};
+document.getElementById("pesquisa").addEventListener("focusout", function (event) {
+    var panel = document.getElementsByClassName("panel")[0]
+    panel.innerHTML = ""
+    $id = gerarCards(1)
+});
 
 
-//agregar oyentes de eventos
-leftButton.addEventListener('click', handleLeftButtonClick);
-rightButton.addEventListener('click', handleRightButtonClick);
-for (const pokeListItem of pokeListItems) {
-    pokeListItem.addEventListener('click', handleListItemClick);
+function criaCardPokemon(id) {
+    var card = `
+        <div class="img_card">
+            <img id="pokemon_img${id}" src="">
+        </div>
+        <p class="pokemon_id">ID: #${id}</p>
+        <p class="pokemon_name" id="pokemon_name${id}"></p>
+        <div class="pokemon_attributes">
+            <div class="attribute">
+                <p class="pokemon_height" id="pokemon_height${id}"></p>
+                <p>height</p>
+            </div>
+            <div class="attribute">
+                <p class="pokemon_weight" id="pokemon_weight${id}"></p>
+                <p>weight</p>
+            </div>
+            <div class="attribute">
+                <p class="pokemon_abilities" id="pokemon_abilities${id}"></p>
+                <p>abilities</p>
+            </div>
+        </div>
+    `
+    return card
 }
 
 
-// inicio de la aplicación
-fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+function gerarCards(id = 1) {
+    if (id < 650) {
+        var panel = document.getElementsByClassName("panel")[0]
+
+        for (var i = id; i < id + 30 && i < 650; i++) {
+            var card = document.createElement("div")
+            card.className = "pokemon_card"
+            card.innerHTML = criaCardPokemon(i)
+            consultarPokemon(i)
+            panel.appendChild(card)
+        }
+
+        return i
+    }
+    return id
+}
+
+window.addEventListener("scroll", function (event) {
+    var top = this.scrollY
+
+    if ((top > $scroll) && $id < 650) {
+        $scroll += 2000
+        $id = gerarCards($id)
+    }
+
+}, false);
+
+
+function abremenu() {
+    var btn = document.getElementById("menu-bars")
+    if (btn.className === "fas fa-bars") {
+        document.getElementById("menu-itens").style.display = "block"
+        btn.className = "fas fa-times"
+    } else {
+        btn.className = "fas fa-bars"
+        document.getElementById("menu-itens").style.display = "none"
+    }
+}
+
+
+var $id = gerarCards($id)
+var $scroll = 2000
