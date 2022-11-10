@@ -11,7 +11,8 @@ function setPokemonCard(identifier, pokemon) {
     abilities.innerText = pokemon.abilities.length
 }
 
-function consultarPokemon(identifier) {
+
+function consultarPokemon(identifier) { //
     fetch(`https://pokeapi.co/api/v2/pokemon/${identifier}`)
         .then(function (response) {
             response.json()
@@ -20,6 +21,8 @@ function consultarPokemon(identifier) {
                 })
         })
 }
+
+
 
 function buscaPokemon() {
     var panel = document.getElementsByClassName("panel")[0]
@@ -97,19 +100,6 @@ window.addEventListener("scroll", function (event) {
     }
 
 }, false);
-
-
-function abremenu() {
-    var btn = document.getElementById("menu-bars")
-    if (btn.className === "fas fa-bars") {
-        document.getElementById("menu-itens").style.display = "block"
-        btn.className = "fas fa-times"
-    } else {
-        btn.className = "fas fa-bars"
-        document.getElementById("menu-itens").style.display = "none"
-    }
-}
-
 
 var $id = gerarCards($id)
 var $scroll = 2000
