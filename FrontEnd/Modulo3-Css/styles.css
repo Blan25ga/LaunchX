@@ -1,0 +1,473 @@
+* {
+  background-color: rgb(241, 236, 236);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+  position: -ms-page;
+}
+header > h1 {
+  color: rgb(11, 47, 146);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header img {
+  width: 5%;
+  display: inline-block;
+}
+header nav {
+  text-align: right;
+  display: inline-block;
+  width: 60%;
+}
+header ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0.5em auto;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+header ul li {
+  display: inline-block;
+}
+header ul li a {
+  text-decoration: none;
+  color: rgb(68, 67, 67);
+  padding: 0.3em;
+}
+header ul li a:active {
+  padding: 0.2em;
+}
+.button {
+  background: linear-gradient(to left, rgb(11, 47, 146), rgb(42, 82, 194));
+  border-radius: 0.5rem;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0.05rem 0.05rem 1rem rgb(115, 160, 245);
+}
+.banner {
+  text-align: center;
+}
+.banner img {
+  width: 100%;
+}
+.banner-text {
+  position: absolute;
+  padding: 5rem;
+  color: rgb(11, 47, 146);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: left;
+  font-size: 1rem;
+}
+.banner-text > p {
+  color: rgb(68, 67, 67);
+  font-size: 1rem;
+}
+.agenda {
+  position: absolute;
+  padding: 2rem;
+  background-color: rgb(241, 236, 236);
+}
+.fa-shield {
+  color: gold;
+  border-radius: 0.1rem;
+  background-color: rgb(255, 250, 215);
+  padding: 0.2rem;
+}
+.fa-star {
+  color: gold;
+  border-radius: 0.1rem;
+  background-color: rgb(255, 250, 215);
+  padding: 0.2rem;
+}
+.fa-location-pin {
+  border-radius: 0.1rem;
+  background-color: rgb(215, 240, 255);
+  padding: 0.2rem;
+}
+.fa-calendar {
+  border-radius: 0.1rem;
+  background-color: rgb(215, 240, 255);
+  padding: 0.2rem;
+}
+.fa-syringe {
+  border-radius: 0.1rem;
+  background-color: rgb(215, 240, 255);
+  padding: 0.2rem;
+}
+.fa-clock {
+  padding: 1rem;
+}
+.seleccion-vacuna {
+  position: absolute;
+  padding: 5rem;
+  color: rgb(11, 47, 146);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;
+  font-size: 2rem;
+  margin-top: 25rem;
+}
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  opacity: 90%;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgb(150, 150, 150);
+}
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.form-inline select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+.form-inline button:hover {
+  background-color: royalblue;
+}
+.form-vacuna {
+  border-radius: 5px;
+  background-color: none;
+  padding: 20px;
+  font-size: 1rem;
+  padding-top: 5rem;
+}
+.fabricantes {
+  margin: auto;
+}
+.fabricantes img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.explicacion {
+  padding-left: 5rem;
+  width: 60%;
+}
+.explicacion > h1 {
+  color: rgb(11, 47, 146);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.explicacion > p {
+  color: rgb(68, 67, 67);
+  font-size: 1rem;
+  padding: 1rem;
+  width: 50%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: none;
+  padding: 1rem;
+  width: 80%;
+  margin: auto;
+}
+.flex-container > div {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 3rem;
+  margin: 1rem;
+  flex-wrap: nowrap;
+  box-shadow: 0.05rem 0.05rem 0.05rem rgb(199, 199, 199);
+}
+.explicacion-container:hover {
+  box-shadow: 0.3rem 0.3rem 0.5rem rgb(150, 150, 150);
+}
+.explicacion-container > p {
+  text-align: left;
+  font-size: 0.9rem;
+  color: rgb(95, 95, 95);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.5rem;
+}
+.fa-virus-covid-slash {
+  background-color: rgb(220, 229, 248);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  color: rgb(0, 89, 255);
+}
+.fa-shield-virus {
+  background-color: rgb(220, 229, 248);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  color: rgb(0, 89, 255);
+}
+.fa-people-arrows-left-right {
+  background-color: rgb(220, 229, 248);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  color: rgb(0, 89, 255);
+}
+.fa-heart {
+  background-color: rgb(220, 229, 248);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  color: rgb(0, 89, 255);
+}
+.preparacion > h1 {
+  color: rgb(11, 47, 146);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 2rem;
+  margin-left: 50%;
+}
+.imagen-preparativos > img {
+  width: 55%;
+  border-radius: 1rem;
+  height: fit-content;
+}
+.preparacion > p {
+  margin-left: 50%;
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: rgb(95, 95, 95);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5rem;
+}
+.imagen-preparativos {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: none;
+  align-items: center;
+}
+.flex-container-prep {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: none;
+  width: 40%;
+  margin: auto;
+  flex-direction: column;
+}
+.simuestra:hover {
+  box-shadow: 0.3rem 0.3rem 0.5rem rgb(150, 150, 150);
+}
+.simuestra:hover .nomuestra {
+  display: block;
+}
+.simuestra {
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  margin: 1rem;
+  flex-wrap: nowrap;
+  box-shadow: 0.05rem 0.05rem 0.05rem rgb(245, 245, 245);
+  color: rgb(95, 95, 95);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nomuestra {
+  display: none;
+  font-size: 0.7rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: lighter;
+  text-align: left;
+  padding: 1rem;
+}
+.simuestra > i {
+  margin-top: 1rem;
+  text-align: center;
+}
+.fa-beer-mug-empty {
+  padding: 1rem;
+  background-color: #d2e2fa;
+  border-radius: 0.5rem;
+}
+.fa-ban,
+.fa-utensils,
+.fa-bed,
+.fa-dumbbell {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #d2e2fa;
+}
+.reacciones {
+  padding: 2rem;
+}
+.reacciones > h1 {
+  color: rgb(11, 47, 146);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;
+  padding: 2rem;
+}
+.reacciones > img {
+  width: 30%;
+  border-radius: 1rem;
+  margin-left: 100%;
+}
+.reacciones > p {
+  padding: 2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: rgb(95, 95, 95);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5rem;
+  width: 40%;
+}
+.reacciones-text > i {
+  margin-top: 1rem;
+}
+.imagen-preparativos {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: none;
+}
+.reacciones-text:hover {
+  box-shadow: 0.3rem 0.3rem 0.5rem rgb(150, 150, 150);
+}
+.reacciones-text {
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  margin: 1rem;
+  flex-wrap: nowrap;
+  box-shadow: 0.05rem 0.05rem 0.8rem rgb(245, 245, 245);
+  color: rgb(95, 95, 95);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1rem;
+}
+.reacciones-text > p {
+  text-align: center;
+}
+.flex-container-chat {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: none;
+  width: 40%;
+  margin: auto;
+  flex-direction: row;
+}
+.flex-container-chat > div {
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
+}
+.flex-container-chat > div > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.contacto {
+  background-color: #d1e3ff;
+  color: rgb(13, 28, 163);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.contacto:hover {
+  background-color: rgb(13, 28, 163);
+  color: #d1e3ff;
+}
+.fa-phone,
+.fa-comment-medical,
+.fa-video,
+.fa-envelope {
+  background-color: #d1e3ff;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: rgb(13, 28, 163);
+}
+.subcontacto {
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+
+footer {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #d3d3d3fd;
+  font-weight: bolder;
+  color: rgb(66, 66, 66);
+  text-align: center;
+}
+footer > div {
+  text-align: left;
+  padding: 1rem;
+  margin: 1rem;
+  line-height: 1rem;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.horario {
+  text-align: left;
+}
+.horario > h2 {
+  color: #0f4699;
+}
+.redessociales {
+  text-align: left;
+}
+.redessociales > h2 {
+  color: #0f4699;
+}
+.telefono {
+  text-align: left;
+}
+.telefono > h2 {
+  color: #0f4699;
+}
+.Nosotros {
+  padding: 3rem;
+  width: 70%;
+  text-align: left;
+}
+.nosotros_image {
+  padding: 5rem;
+  float: right;
+  width: auto;
+}
+.horario > p {
+  width: 50%;
+  font-weight: lighter;
+}
+.Nosotros > p,
+.telefono > p,
+.redessociales > p {
+  font-weight: lighter;
+}
+.container {
+  margin: auto;
+  border-radius: 5px;
+  background-color: #585858;
+  padding: 1rem;
+  width: 70%;
+}
