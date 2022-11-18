@@ -20,3 +20,19 @@ server.listen(port, host, () => { //el servidor escucha en el puerto y el host q
 
 
 
+/!     FUNCIONES    !/
+
+function cambiaColorAletorio() {
+    const colores = ["red", "blue", "green", "yellow", "pink", "purple", "orange", "brown", "black", "white"];
+    const color = colores[Math.floor(Math.random() * colores.length)]; //genera un número aleatorio entre 0 y el número de colores que hay en el array
+    document.body.style.backgroundColor = color;
+
+}
+
+//cambia el color de fondo cada 5 segundos
+setInterval(cambiaColorAletorio, 5000);
+
+
+
+
+// ocaciones en donde Posicionar el script antes dentro de head
